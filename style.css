@@ -1,0 +1,106 @@
+@include media-breakpoint-down(xs) { ... }
+@include media-breakpoint-down(sm) { ... }
+@include media-breakpoint-down(md) { ... }
+@include media-breakpoint-down(lg) { ... }
+#r1 {
+
+	font-family: arial, sans-serif;
+	border-bottom: 5px solid #005282;
+}
+
+#r2txt {
+
+	font-family:"Lato", sans-serif; 
+	width: 100%;
+	font-size: 25px;
+}
+
+#r3 {
+	background: #71a1be;
+	color:white;
+	padding:20px;
+
+}
+
+#r41{
+	background: #05263a;
+	color: white;
+}
+
+
+#r42{
+	background: #F1F0EA;
+}
+
+#r5{
+	background: #f58c99;
+	color:white;
+}
+
+#name{
+	font-family:"Lato", sans-serif; 
+	font-size: 25px;
+}
+
+
+span{
+
+	color: #71a1be;
+}
+
+.btn-primary{
+	background: #005282;
+	border: #005282;
+	padding: 10px 80px;
+
+}
+
+#calender {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+}
+
+#jim{
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 90%;
+  	padding-top: 30px;
+}
+
+.excla{
+	display: block;
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+ 
+}
+
+
+
+
+.arrow-down:{
+	
+ 	width: 0; 
+  	height: 0;
+  	border-left: 20px solid transparent;
+  	border-right: 20px solid transparent;
+  	border-top: 30px solid #05263a;
+}
+
+ul.no_bull{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+li.check{
+
+	background: url('https://d13p2xj50zkyqm.cloudfront.net/promos_1/AF/RGS/RGS_Hotlist_0617/RGS_Hotlist_0617_CheckmarkBox.png') no-repeat left top;
+	height: 130px;
+	padding-left: 80px;
+	
+
+}
