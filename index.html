@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+		<!-- <script type="text/javascript"> src="script.js"</script> -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//when checkbox changes have others mimic value
+				$("#chk1").change(function() {
+    				$("#chk2").prop("checked", this.checked);
+				});	
+				$("#chk2").change(function() {
+    				$("#chk1").prop("checked", this.checked);
+				});	
+			});
+
+			function validate(){
+				//get checkboxes
+				var chk1 = document.getElementById("chk1")
+				var chk2 = document.getElementById("chk2")
+				// check if boxes have been checked
+				if (chk1.checked && chk2.checked){
+					//$.ajax({
+						//type: "POST"
+						//url: "https://bl45immth4.execute-api.us-east-1.amazonaws.com/production/",
+						//dataType: "json",
+						//success: function(data) {
+							//$("#response").html(data);
+						//}
+					//});
+				} else {
+					alert("Please check checkbox before proceeding")
+					return false;
+				}
+
+			}
+			// Set the date 5 days from now
+			var date1 = new Date();
+			date1.setDate(date1.getDate() + 5);
+			var countDownDate = new Date(date1).getTime();
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+				  // Get today's date and time
+				  var now = new Date().getTime();
+				    
+				  // Distance between now and the count down date
+				  var distance = countDownDate - now;
+				    
+				  // Time calculations for days, hours, minutes and seconds
+				  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+				    
+				  // Output result
+				  $("#countdown").html(days + "d " + hours + "h "
+				  + minutes + "m " + seconds + "s ");
+				    
+			}, 1000);
+
+		</script>
 		<title>Exercise</title>
 
 
@@ -13,7 +76,7 @@
 
 		<div class="container " >
 			<div class="row"> 
-				<div class="col text-center p-4 border-" id="r1">
+				<div class="col text-center p-4 mx-5" id="r1">
 					Best-Selling Author and Gold Expert<br> 
 					Jim Rickards’ Presents…
 				</div>
@@ -21,36 +84,38 @@
 
 			<div class="row">
 				<div class="col text-center pb-4" >
-					<div class="pb-4" id="r2txt">“In just days a Never-Before- Seen Gold Anomaly 
+					<div class="p-4 " id="r2">“In just days a Never-Before- Seen Gold Anomaly 
 					Will Create a Totally New Class of Penny Gold Stocks...
 					I’ve Enlisted One of the World’s Top Geologists 
 					to Help Me Reveal... Live on Camera… What This 
 					Coming <span>Gold Mega-Catalyst</span> Is And How You Could Make 
 					as Much as <span>$101,000 in Profit</span>.”
 					</div>
-					<form>
+					<form name="form1" action="#" method="post">
 						<div class="form-group">
-							<input type="checkbox" id="letter" value="yes">
-							<label for="letter" class="pl-3">I would like to receive a free newsletter </label>
+							<input type="checkbox" id="chk1" value="yes">
+							<label for="chk1" class="pl-3">I would like to receive a free newsletter </label>
 						</div>
-						<button type="submit" class="btn btn-primary"> Register for this FREE<br>liveWebinar Here!</button>
+						<button type="submit" class="btn btn-primary" onclick="return validate()" > Register for this FREE<br>live Webinar Here!</button>
+						<p class='response'></p>
 					</form>
 				</div>
 			</div>
 
-			<div class="row justify-content-md-center">
-				<div class="col-md-4 " id="r3">
+			<div class="row justify-content-md-center ">
+				<div class="col-md-3 mr-lg-2" id="r3">
 					<img src="https://d13p2xj50zkyqm.cloudfront.net/promos/AF/RGS/RGS_Hotlist_0617/RGS_Hotlist_0617_Calendar.png" id="calender">
 					<div class="pt-4 text-center"><b>May 29th</b><br>
 						at 5:00 PM EDT
 					</div>
 				</div>
-				<div class="col-md-8 text-center" id="r3">
+				<div class="col-md-8 text-center ml-lg-2" id="r3">
 					<b>TIME LEFT UNTIL THE WEBINAR STARTS...</b>
+					<p id="countdown"></p>
 				</div>
 			</div>
 
-			<div class="row justify-content-md-center">
+			<div class="row justify-content-md-center m-lg-3">
 				<div class="col-md-6 text-center" id="r41">
 					<img src="https://d13p2xj50zkyqm.cloudfront.net/promos/AF/RGS/RGS_Hotlist_0617/RGS_Hotlist_0617_JimRickards.png" id="jim">
 					<p class="pt-2 font-italic">Presented by best-selling author and gold expert…</p>
@@ -68,34 +133,35 @@
 				</div>
 
 			</div>
-			<div class="row " id="r5">
-				<div class= "col-sm-2">
-					<img src="https://d13p2xj50zkyqm.cloudfront.net/promos/AF/RGS/RGS_Hotlist_0617/RGS_Hotlist_0617_Warning.png" class="excla">
+			<div class="row mx-lg-3" id="r5">
+				<div class= "col-sm-3  d-none d-lg-block ">
+					<img  src="https://d13p2xj50zkyqm.cloudfront.net/promos/AF/RGS/RGS_Hotlist_0617/RGS_Hotlist_0617_Warning.png" class="excla">
 				</div>
-				<div class="col-md-11 text-center p-2">
+				<div class="col-md-9 text-center pt-3 ">
 					WARNING: SPACE IS LIMITED & THESE LIVE TRAININGS ALWAYS FILL UP
 				</div>
 			</div>
 
-			<div class="row bg-secondary">
+			<div class="row mx-lg-3">
 				<div class="col text-center p-3" id="r41">
 					Claim your spot below before it's too late!
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-5" ></div>
-				<div class="col-2 arrow-down" ></div>
+				<div class=" arrow-down" ></div>
 				<div class="col-5" ></div>
 			</div>
 
 			<div class="row p-2">
 				<div class="col text-center">
-					<form>
+					<form name="form2" action="#"  method="post">
 						<div class="form-group">
-							<input type="checkbox" id="letter" value="yes">
-							<label class="pl-3" for="letter">I would like to receive a free newsletter </label>
+							<input type="checkbox" id="chk2" value="yes">
+							<label class="pl-3" for="chk2">I would like to receive a free newsletter </label>
 						</div>
-						<button type="submit" class="btn btn-primary">YES! Reserve My Spot Now!>></button>
+						<button type="submit" class="btn btn-primary" onclick="return validate()">YES! Reserve My Spot Now!>></button>
+						<p class='response'></p>
 					</form>
 				</div>
 			</div>
@@ -103,9 +169,7 @@
 		</div>
 
 
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
 	</body>
 
 
